@@ -1,7 +1,8 @@
-package controllers;
+package com.codeup.adlister.controllers;
 
-import Dao.DaoFactory;
-import models.Ad;
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,14 +15,16 @@ import java.io.IOException;
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-            .forward(request, response);
+                .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Retrieve the currently logged in user object
+        User loggedInUser = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(
-            1, // for now we'll hardcode the user id
-            request.getParameter("title"),
-            request.getParameter("description")
+                loggedInUser.getId(), // set the user ID to the currently logged in Users ID.
+                request.getParameter("title"),
+                request.getParameter("description")
         );
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
