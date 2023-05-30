@@ -1,6 +1,6 @@
 package controllers;
 
-import DaoFactory;
+import Dao.DaoFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
