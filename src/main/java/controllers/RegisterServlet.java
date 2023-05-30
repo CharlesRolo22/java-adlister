@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
         if (username != null && email != null && password != null ) {
             // TODO: create a new user based off of the submitted information
             User newUser = new User();
+
             newUser.setUsername(username);
             newUser.setEmail(email);
             newUser.setPassword(password);
