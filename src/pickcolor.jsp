@@ -2,16 +2,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Pick Your Favorite Color</title>
+    <title>Title</title>
 </head>
 <body>
-<h1>Pick Your Favorite Color</h1>
-
-<form action="colorsubmit" method="post">
-    <label for="color">Favorite Color:</label>
-    <input type="text" id="color" name="color" required><br><br>
-
-    <input type="submit" value="Submit">
+<form action="/pickcolor" method="post">
+    <label for="color">Type in a Color:</label>
+    <input type="text" name="color" id="color">
+    <button>Submit</button>
 </form>
 </body>
 </html>
+112 changes: 112 additions & 0 deletions112
+src/main/webapp/piz
